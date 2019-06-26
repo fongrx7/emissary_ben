@@ -19,7 +19,6 @@
 		sh 'grep -h ^deb /etc/apt/sources.list'
 
 		sh 'cd /tmp && curl -o expect.rpm https://rpmfind.net/linux/Mandriva/devel/cooker/SRPMS/expect-5.45-1.src.rpm && rpm -i expect.rpm'
-		sh '
 		sh 'expect -version'
 		
 		sh 'mvn clean package -Pdist -e'
