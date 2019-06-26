@@ -8,6 +8,7 @@
 	  	  jdk 'jdk8'
    	    }
             steps {
+	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
@@ -18,7 +19,7 @@
 		sh 'cat /root/.bashrc'
 		sh 'grep -h ^deb /etc/apt/sources.list'
 
-		sh 'cd /tmp && curl -o expect.rpm https://rpmfind.net/linux/Mandriva/devel/cooker/SRPMS/expect-5.45-1.src.rpm && rpm -i expect.rpm'
+
 		sh 'expect -version'
 		
 		sh 'mvn clean package -Pdist -e'
