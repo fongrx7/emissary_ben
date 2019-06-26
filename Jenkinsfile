@@ -25,9 +25,6 @@
 		sh 'echo $JAVA_HOME'
 		sh 'java -version'
 		sh 'mvn -v'
-		sh 'pwd'
-		sh 'chmod -R 777 $(pwd)'
-		sh 'mvn clean compile'
 		sh 'mvn clean install'
 		sh 'mvn clean package -Pdist -e'
             }
