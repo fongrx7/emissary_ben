@@ -7,19 +7,19 @@
   <packaging>jar</packaging>
   <name>Emissary</name>
   <description />
-  <url>https://github.com/NationalSecurityAgency/emissary</url>
+  <url>https://github.com/bekelm/emissary</url>
   <organization />
   <licenses />
   <developers />
   <mailingLists />
   <scm>
-    <connection>scm:git:https://github.com/NationalSecurityAgency/emissary.git</connection>
-    <developerConnection>scm:git:git@github.com:NationalSecurityAgency/emissary.git</developerConnection>
-    <url>https://github.com/NationalSecurityAgency/emissary</url>
+    <connection>scm:git:https://github.com/bekelm/emissary.git</connection>
+    <developerConnection>scm:git:git@github.com:bekelm/emissary.git</developerConnection>
+    <url>https://github.com/bekelm/emissary</url>
   </scm>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/NationalSecurityAgency/emissary/issues</url>
+    <url>https://github.com/bekelm/emissary/issues</url>
   </issueManagement>
   <ciManagement />
   <distributionManagement />
