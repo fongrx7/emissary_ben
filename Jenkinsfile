@@ -8,7 +8,7 @@
 	  	  jdk 'jdk8'
    	    }
             steps {
-		sh 'apt-get -y install unzip wget tar perl'
+		sh 'apt-get -y install expect unzip wget tar perl'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
