@@ -9,7 +9,6 @@
    	    }
             steps {
 		sh 'apt-get -y install unzip wget tar perl'
-		sh 'cat etc/apt/sources.list repo_update > etc/apt/sources.list'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
