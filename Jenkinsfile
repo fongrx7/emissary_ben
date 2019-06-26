@@ -23,6 +23,7 @@
 		sh 'expect -version'
 		
 		sh 'echo $JAVA_HOME'
+		sh 'mvn clean compile'
 		sh 'mvn clean install'
 		sh 'mvn clean package -Pdist -e'
             }
