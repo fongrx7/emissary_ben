@@ -22,6 +22,8 @@
 		sh 'cd /tmp && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
 		sh 'expect -version'
 		
+		sh 'echo $JAVA_HOME'
+		sh 'mvn clean install'
 		sh 'mvn clean package -Pdist -e'
             }
         }
