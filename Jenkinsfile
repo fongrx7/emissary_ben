@@ -8,6 +8,8 @@
 	  	  jdk 'jdk8'
    	    }
             steps {
+	    	sh 'uname'
+		
 	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl'
 		sh 'cat bashrc_addition >> /root/.bashrc'
