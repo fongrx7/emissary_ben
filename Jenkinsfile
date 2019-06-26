@@ -19,7 +19,7 @@
 		sh 'cat /root/.bashrc'
 		sh 'grep -h ^deb /etc/apt/sources.list'
 
-		sh 'cd /tmp && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install ./expect.deb'
+		sh 'cd /tmp && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
 		sh 'expect -version'
 		
 		sh 'mvn clean package -Pdist -e'
