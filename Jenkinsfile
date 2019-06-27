@@ -26,8 +26,9 @@
 		sh 'cat /var/jenkins_home/test_runner_home/.bashrc'
 		sh 'chown -R test_runner:test_runner /var/jenkins_home/test_runner_home'		
 		sh 'chmod -R 777 /var/jenkins_home/test_runner_home'		
-
-		sh 'cd /tmp && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
+		
+		sh 'mkdir /var/jenkins_home/test_runner_home/installs'
+		sh 'cd /var/jenkins_home/test_runner_home/installs && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
 		sh 'expect -version'
 		
 		sh 'echo $JAVA_HOME'
