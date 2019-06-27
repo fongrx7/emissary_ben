@@ -35,9 +35,6 @@
 		sh 'pwd'
 		sh 'which mvn'
 
-	
-		sh 'chmod -R 777 /var/jenkins_home/workspace/emissary/'
-
 
 		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean install"'
 		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e"'
