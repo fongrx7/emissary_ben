@@ -28,6 +28,7 @@ pipeline {
 		sh 'java -version'
 		sh 'mvn -v'
 		sh 'mvn clean install'
+		sh 'mvn test -Dsurefire.useFile=false'
 		sh 'mvn clean package -Pdist -e -X'
             }
         }
