@@ -35,8 +35,8 @@
 		sh 'chown -R test_runner:test_runner /var/jenkins_home/workspace/emissary'
 		sh 'chmod -R 777 /var/jenkins_home/tools/'
 
-		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean compile"'
-		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e"'
+		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean compile -X"'
+		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e -X"'
             }
         }
         stage('Test') {
