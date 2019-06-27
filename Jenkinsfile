@@ -35,8 +35,8 @@
 
 		sh 'deluser test_runner 2>/dev/null'
 		sh 'id -u test_runner || adduser --disabled-password --home /tmp --gecos "" test_runner'
-		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && $(which mvn) clean install"'
-		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && $(which mvn) clean package -Pdist -e"'
+		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean install"'
+		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e"'
             }
         }
         stage('Test') {
