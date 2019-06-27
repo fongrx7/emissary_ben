@@ -13,7 +13,7 @@
 
 	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl sudo'
-		sh 'usermod -aG sudo Linux'
+		sh 'usermod -aG sudo root'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
@@ -29,7 +29,7 @@
 		sh 'echo $JAVA_HOME'
 		sh 'java -version'
 		sh 'mvn -v'
-		sh 'sudo chmod 777 /home'
+		sh 'ls /'
 		sh 'mkdir /home/test_runner'
 		sh 'chmod 777 /home/test_runner'
 		sh 'adduser --disabled-password --gecos "" test_runner'
