@@ -27,7 +27,7 @@ pipeline {
 		sh 'echo $JAVA_HOME'
 		sh 'java -version'
 		sh 'mvn -v'
-		sh 'mvn clean install'
+		sh 'mvn clean install -Dsurefire.useFile=false'
 		sh 'mvn test -Dsurefire.useFile=false'
 		sh 'mvn clean package -Pdist -e -X'
             }
