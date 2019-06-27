@@ -8,7 +8,7 @@
                      want for example, if it is on a shared drive that is really slow
   <localRepository>/somecooldir/mvn-repo</localRepository>
   -->
-
+  <localRepository>/tmp/.m2/repository</localRepository>
   <!-- server password is encrypted, you must have a
                 ~/.m2/settings-security.xml file, try
   echo "<settingsSecurity><master>{KlTvz8oxYrMHlSFrVYlLuyeimGK4Pp6NytqDwATt8dX87pciTZOrwqzkgHHoKlk0}</master></settingsSecurity>" > ~/.m2/settings-security.xml

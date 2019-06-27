@@ -9,7 +9,9 @@
    	    }
             steps {
 	    	sh 'uname'
-		sh 'whoami'		
+		sh 'whoami'
+		sh 'deluser test_runner 2>/dev/null'
+		sh 'id -u test_runner || adduser --disabled-password --home /tmp --gecos "" test_runner'		
 
 	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl sudo'
@@ -33,8 +35,7 @@
 		sh 'pwd'
 		sh 'which mvn'
 
-		sh 'deluser test_runner 2>/dev/null'
-		sh 'id -u test_runner || adduser --disabled-password --home /tmp --gecos "" test_runner'
+	
 		sh 'chmod -R 777 /var/jenkins_home/workspace/emissary/'
 
 
