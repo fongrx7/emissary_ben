@@ -27,6 +27,7 @@
 		sh 'echo $JAVA_HOME'
 		sh 'java -version'
 		sh 'mvn -v'
+		sh 'chmod 777 /home'
 		sh 'mkdir /home/test_runner'
 		sh 'chmod 777 /home/test_runner'
 		sh 'adduser --disabled-password --gecos "" test_runner'
