@@ -11,7 +11,8 @@
 	    	sh 'uname'
 		
 	        sh 'apt-get -y update'
-		sh 'apt-get -y install unzip wget tar perl'
+		sh 'apt-get -y install unzip wget tar perl sudo'
+		sh 'usermod -aG sudo Linux'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
