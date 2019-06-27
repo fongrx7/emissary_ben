@@ -31,7 +31,7 @@
 		sh 'mvn -v'
 		
 		sh 'pwd'
-		sh 'adduser --disabled-password --home $(pwd) --gecos "" test_runner'
+		sh 'id -u test_runner || adduser --disabled-password --home $(pwd) --gecos "" test_runner'
 		sh 'su test_runner && mvn clean install'
 		sh 'su test_runner && mvn clean package -Pdist -e'
             }
