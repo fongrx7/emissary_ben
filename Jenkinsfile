@@ -31,8 +31,8 @@
 		sh 'mvn -v'
 		
 		sh 'pwd'
-		sh 'id -u test_runner || adduser --disabled-password --home $(pwd) --gecos "" test_runner'
-		sh 'su test_runner && mvn clean install'
+		sh 'id -u test_runner || adduser --disabled-password --home /tmp --gecos "" test_runner'
+		sh 'su test_runner && cd /var/jenkins_home/workspace/emissary && mvn clean install'
 		sh 'su test_runner && mvn clean package -Pdist -e'
             }
         }
