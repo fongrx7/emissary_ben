@@ -8,14 +8,13 @@
 	  	  jdk 'jdk8'
    	    }
             steps {
-	    	sh 'uname'
-		sh 'whoami'
 		sh 'mkdir -p /var/jenkins_home/test_runner_home'
 		sh 'deluser test_runner 2>/dev/null'
 		sh 'id -u test_runner || adduser --disabled-password --home /var/jenkins_home/test_runner_home --gecos "" test_runner'		
 
 	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl sudo'
+
 		sh 'cat bashrc_addition >> /var/jenkins_home/test_runner_home/.bashrc'
 		sh 'rm -rf /var/jenkins_home/test_runner_home/.m2'
 		sh 'mkdir -p /var/jenkins_home/test_runner_home/.m2'
@@ -31,20 +30,13 @@
 		sh 'cd /var/jenkins_home/test_runner_home/installs && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
 		sh 'chmod -R 777 /var/jenkins_home/test_runner_home/installs'
 		sh 'expect -version'
-		
-		sh 'echo $JAVA_HOME'
-		sh 'java -version'
-		sh 'mvn -v'
-		
-		sh 'pwd'
-		sh 'which mvn'
+
 		sh 'chmod -R a+rw /var/jenkins_home/workspace/emissary'
 		sh 'chown -R test_runner:test_runner /var/jenkins_home/workspace/emissary'
-		
-		sh 'runuser -l test_runner -c "cd ~ && ls -la"'
+		sh 'chmod -R 777 /var/jenkings_home/tools/'
 
-		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean compile"'
-		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && echo $JAVA_HOME && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e"'
+		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean compile"'
+		sh 'runuser -l test_runner -c "source /var/jenkins_home/test_runner_home/.bashrc && cd /var/jenkins_home/workspace/emissary && export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/jdk8 && $(which mvn) clean package -Pdist -e"'
             }
         }
         stage('Test') {
