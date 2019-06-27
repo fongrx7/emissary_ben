@@ -17,6 +17,7 @@
 	        sh 'apt-get -y update'
 		sh 'apt-get -y install unzip wget tar perl sudo'
 		sh 'cat bashrc_addition >> /var/jenkins_home/test_runner_home/.bashrc'
+		sh 'rm -rf /var/jenkins_home/test_runner_home/.m2'
 		sh 'mkdir -p /var/jenkins_home/test_runner_home/.m2'
 		sh 'chmod -R 777 /var/jenkins_home/test_runner_home/.m2'
 		sh 'rm -rf /var/jenkins_home/test_runner_home/.m2/repository'
