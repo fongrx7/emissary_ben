@@ -31,10 +31,12 @@
 		sh 'mvn -v'
 		
 		sh 'pwd'
+		sh 'which mvn'
+
 		sh 'deluser test_runner 2>/dev/null'
 		sh 'id -u test_runner || adduser --disabled-password --home /tmp --gecos "" test_runner'
-		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && mvn clean install"'
-		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && mvn clean package -Pdist -e"'
+		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && $(which mvn) clean install"'
+		sh 'runuser -l test_runner -c "cd /var/jenkins_home/workspace/emissary && $(which mvn) clean package -Pdist -e"'
             }
         }
         stage('Test') {
