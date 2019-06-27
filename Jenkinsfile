@@ -10,7 +10,7 @@
             steps {
 	    	sh 'uname'
 		sh 'whoami'
-		sh 'mkdir /var/jenkins_home/test_runner_home'
+		sh 'mkdir -p /var/jenkins_home/test_runner_home'
 		sh 'deluser test_runner 2>/dev/null'
 		sh 'id -u test_runner || adduser --disabled-password --home /var/jenkins_home/test_runner_home --gecos "" test_runner'		
 
