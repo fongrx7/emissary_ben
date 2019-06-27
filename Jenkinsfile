@@ -32,9 +32,8 @@
 		
 		sh 'pwd'
 		sh 'adduser --disabled-password --home $(pwd) --gecos "" test_runner'
-		sh 'su test_runner'
-		sh 'mvn clean install'
-		sh 'mvn clean package -Pdist -e'
+		sh 'su test_runner && mvn clean install'
+		sh 'su test_runner && mvn clean package -Pdist -e'
             }
         }
         stage('Test') {
