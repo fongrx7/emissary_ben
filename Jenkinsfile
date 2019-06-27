@@ -28,7 +28,7 @@ pipeline {
 		sh 'java -version'
 		sh 'mvn -v'
 		sh 'mvn clean install'
-		sh 'mvn clean package -Pdist -e'
+		sh 'mvn clean package -Pdist -e -X'
             }
         }
         stage('Test') {
