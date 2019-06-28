@@ -5,13 +5,10 @@ pipeline {
 	    agent any
 	    tools {
     	    	  maven 'Maven 3.6.1'
-	  	  jdk 'jdk8'
    	    }
             steps {
-	    	sh 'uname'
-		
-	        sh 'apt-get -y update'
-		sh 'apt-get -y install unzip wget tar perl'
+	        sh 'yum update -y'
+		sh 'yum install -y java-1.8.0-openjdk unzip wget tar which expect perl'
 		sh 'cat bashrc_addition >> /root/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
@@ -19,16 +16,14 @@ pipeline {
 		sh 'mv settings.xml ~/.m2'
 		sh 'mv settings-security.xml ~/.m2'
 		sh 'cat /root/.bashrc'
-		sh 'grep -h ^deb /etc/apt/sources.list'
 
-		sh 'cd /tmp && curl -o expect.deb http://ftp.us.debian.org/debian/pool/main/e/expect/expect_5.45-6_amd64.deb && apt install -y ./expect.deb'
 		sh 'expect -version'
 		
 		sh 'echo $JAVA_HOME'
 		sh 'java -version'
 		sh 'mvn -v'
-		sh 'mvn clean install -Dsurefire.useFile=false'
-		sh 'mvn test -Dsurefire.useFile=false'
+		sh 'mvn clean install'
+		sh 'mvn test'
 		sh 'mvn clean package -Pdist -e -X'
             }
         }
