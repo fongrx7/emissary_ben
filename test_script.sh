@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timeout -s SIGINT 120s docker-compose up --force-recreate > test_results
+timeout -s SIGINT 120s docker-compose up --force-recreate | tee test_results
 
 TEST_RESULTS=0
 
