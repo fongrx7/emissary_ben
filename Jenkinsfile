@@ -23,13 +23,13 @@ pipeline {
 		sh 'java -version'
 		sh 'mvn -v'
 		sh 'mvn clean install'
-		sh 'mvn clean package -Pdist'
             }
         }
 	stage('Build Docker Image'){
 	    agent any
 	    steps {
 	        sh 'sudo systemctl start docker'
+		sh 'mvn clean package -Pdist'
 	   	sh 'sudo docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {"print $3 " " "}) --build-arg IMG_NAME=latest .'
 	    }
 	}
