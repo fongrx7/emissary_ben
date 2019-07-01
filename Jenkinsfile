@@ -8,7 +8,6 @@ pipeline {
    	    }
             steps {
 	    	sh 'pwd'
-		sh './emissary -version'
 	        sh 'sudo yum update -y'
 		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
@@ -25,6 +24,8 @@ pipeline {
 		sh 'java -version'
 		sh 'mvn -v'
 		sh 'mvn clean install'
+		sh 'mvn clean compile'
+		sh './emissary -version'
             }
         }
 	stage('Build Docker Image'){
