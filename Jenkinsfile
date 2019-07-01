@@ -1,14 +1,14 @@
 pipeline {
     agent none
     stages {
-        stage('Build') {
+        stage('Build Emissary') {
 	    agent any
 	    tools {
     	    	  maven 'Maven 3.6.1'
    	    }
             steps {
 	        sh 'sudo yum update -y'
-		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker'
+		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
@@ -23,25 +23,19 @@ pipeline {
 		sh 'java -version'
 		sh 'mvn -v'
 		sh 'mvn clean install'
-		sh 'mvn test'
 		sh 'mvn clean package -Pdist'
-		sh 'sudo systemctl start docker'
-		sh 'echo "alias docker="sudo docker "" > ~/.bashrc'
             }
         }
+	state('Build Docker Image'){
+	    agent any
+	    sh 'sudo systemctl start docker'
+	    sh 'sudo docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {'print $3 " " '}) --build-arg IMG_NAME=latest .'
+	}
         stage('Test') {
-	    agent {
-            	  docker {
-            	  	 image 'centos:7'
-        	  }
-    	    }
+	    agent any
             steps {
-                sh 'mvn test -e' 
-            }
-            post {
-                always {
-                    sh './test_script.sh'
-                }
+                sh 'mvn test' 
+		sh './test_script.sh'	
             }
         }
     }

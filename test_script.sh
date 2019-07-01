@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo systemctl start docker
-sudo docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {'print $3 " " '}) --build-arg IMG_NAME=latest .
-
 sudo timeout -s SIGINT 120s sudo /usr/local/bin/docker-compose up --force-recreate > test_results
 
 TEST_RESULTS=0
