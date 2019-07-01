@@ -7,6 +7,7 @@ pipeline {
     	    	  maven 'Maven 3.6.1'
    	    }
             steps {
+	    	sh 'pwd'
 	        sh 'sudo yum update -y'
 		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
@@ -33,7 +34,7 @@ pipeline {
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'mvn clean package -Pdist'
-	   	sh 'sudo docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {"print $3 " " "}) --build-arg IMG_NAME=latest .'
+	   	sh ' docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {"print $3 " " "}) --build-arg IMG_NAME=latest .'
 	    }
 	}
         stage('Test') {
