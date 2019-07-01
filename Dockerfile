@@ -8,17 +8,17 @@ RUN yum update -y \
 ARG PROJ_VERS
 ARG IMG_NAME
 
+RUN mkdir -p /home/docker_build_home
+ADD target/emissary-${PROJ_VERS}-dist.tar.gz /home/docker_build_home
 
-ADD target/emissary-${PROJ_VERS}-dist.tar.gz ~/
-
-RUN ln -s ~/emissary-${PROJ_VERS} ~/emissary
+RUN ln -s ~/emissary-${PROJ_VERS} /home/docker_build_home/emissary
 
 WORKDIR /opt/emissary
 
-RUN mkdir ~/emissary/test_input
-COPY src/test/resources/test_input ~/emissary/test_input
-RUN chmod -R 777 ~/emissary/test_input
-RUN chmod -R 777 ~/emissary
+RUN mkdir /home/docker_build_home/emissary/test_input
+COPY src/test/resources/test_input /home/docker_build_home/emissary/test_input
+RUN chmod -R 777 /home/docker_build_home/emissary/test_input
+RUN chmod -R 777 ~/home/docker_build_home/emissary
 
 EXPOSE 8001
 
@@ -28,4 +28,4 @@ ENTRYPOINT ["./emissary"]
 CMD ["server", "-a", "2", "-p", "8001"]
 
 LABEL version=${PROJ_VERS} \
-      run="docker run -it --rm -v /local/data:~/emissary/target/data --name emissary ${IMG_NAME}"
+      run="docker run -it --rm -v /local/data:/home/docker_build_home/emissary/target/data --name emissary ${IMG_NAME}"
