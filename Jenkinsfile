@@ -27,6 +27,9 @@ pipeline {
         }
 	stage('Build Docker Image'){
 	    agent any
+	    tools {
+    	    	  maven 'Maven 3.6.1'
+   	    }
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'mvn clean package -Pdist'
