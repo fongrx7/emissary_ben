@@ -8,7 +8,7 @@ pipeline {
    	    }
             steps {
 	        sh 'sudo yum update -y'
-		sh 'sudo yum install -y java-1.8.0-openjdk tar expect docker docker-compose'
+		sh 'sudo yum install -y java-1.8.0-openjdk tar expect which docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
