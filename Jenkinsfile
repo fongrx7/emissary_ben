@@ -9,7 +9,7 @@ pipeline {
             steps {
 	        sh 'sudo yum update -y'
 		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl'
-		sh 'cat bashrc_addition >> /root/.bashrc'
+		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
 		sh 'rm -rf ~/.m2/repository'
