@@ -27,7 +27,7 @@ pipeline {
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'mvn clean package -Pdist'
-	   	sh ' docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .'
+	   	sh 'docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .'
 	    }
 	}
         stage('Test') {
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh 'mvn test' 
 		sh 'rm -f test_results'
-		sh 'sudo ./test_script.sh'
+		sh './test_script.sh'
             }
         }
     }
