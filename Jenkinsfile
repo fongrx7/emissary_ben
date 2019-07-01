@@ -25,7 +25,7 @@ pipeline {
 		sh 'mvn -v'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
-		sh './emissary -version'
+		sh './emissary version'
             }
         }
 	stage('Build Docker Image'){
@@ -36,7 +36,7 @@ pipeline {
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'mvn clean package -Pdist'
-	   	sh ' docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {"print $3 " " "}) --build-arg IMG_NAME=latest .'
+	   	sh ' docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .'
 	    }
 	}
         stage('Test') {
