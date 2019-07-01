@@ -11,9 +11,9 @@ ARG IMG_NAME
 RUN mkdir -p /home/docker_build_home
 ADD target/emissary-${PROJ_VERS}-dist.tar.gz /home/docker_build_home
 
-RUN ln -s home/docker_build_home/emissary-${PROJ_VERS} /home/docker_build_home/emissary
+RUN ln -s /home/docker_build_home/emissary-${PROJ_VERS} /home/docker_build_home/emissary
 
-WORKDIR /opt/emissary
+WORKDIR /home/docker_build_home/emissary
 
 RUN mkdir /home/docker_build_home/emissary/test_input
 COPY src/test/resources/test_input /home/docker_build_home/emissary/test_input
