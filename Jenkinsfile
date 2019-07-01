@@ -15,7 +15,7 @@ pipeline {
 		sh 'rm -rf ~/.m2/repository'
 		sh 'mv settings.xml ~/.m2'
 		sh 'mv settings-security.xml ~/.m2'
-		sh 'cat /root/.bashrc'
+		sh 'cat ~/.bashrc'
 
 		sh 'expect -version'
 		
