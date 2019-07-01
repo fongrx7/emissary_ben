@@ -26,7 +26,7 @@ pipeline {
 		sh 'mvn clean package -Pdist'
             }
         }
-	state('Build Docker Image'){
+	stage('Build Docker Image'){
 	    agent any
 	    sh 'sudo systemctl start docker'
 	    sh 'sudo docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {'print $3 " " '}) --build-arg IMG_NAME=latest .'
