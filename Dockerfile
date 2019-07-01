@@ -9,16 +9,16 @@ ARG PROJ_VERS
 ARG IMG_NAME
 
 
-ADD target/emissary-${PROJ_VERS}-dist.tar.gz /opt/
+ADD target/emissary-${PROJ_VERS}-dist.tar.gz /tmp/
 
-RUN ln -s /opt/emissary-${PROJ_VERS} /opt/emissary
+RUN ln -s /tmp/emissary-${PROJ_VERS} /tmp/emissary
 
-WORKDIR /opt/emissary
+WORKDIR /tmp/emissary
 
-RUN mkdir /opt/emissary/test_input
-COPY src/test/resources/test_input /opt/emissary/test_input
-RUN chmod -R 777 /opt/emissary/test_input
-RUN chmod -R 777 /opt/emissary
+RUN mkdir /tmp/emissary/test_input
+COPY src/test/resources/test_input /tmp/emissary/test_input
+RUN chmod -R 777 /tmp/emissary/test_input
+RUN chmod -R 777 /tmp/emissary
 
 EXPOSE 8001
 
