@@ -26,6 +26,7 @@ pipeline {
 		sh 'mvn test'
 		sh 'mvn clean package -Pdist'
 		sh 'sudo systemctl start docker'
+		sh 'echo "alias docker='sudo docker '" > ~/.bashrc'
             }
         }
         stage('Test') {
