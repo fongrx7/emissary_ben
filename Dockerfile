@@ -9,16 +9,16 @@ ARG PROJ_VERS
 ARG IMG_NAME
 
 
-ADD target/emissary-${PROJ_VERS}-dist.tar.gz /tmp/
+ADD target/emissary-${PROJ_VERS}-dist.tar.gz /opt/
 
-RUN ln -s /tmp/emissary-${PROJ_VERS} /tmp/emissary
+RUN ln -s /opt/emissary-${PROJ_VERS} /opt/emissary
 
-WORKDIR /tmp/emissary
+WORKDIR /opt/emissary
 
-RUN mkdir /tmp/emissary/test_input
-COPY src/test/resources/test_input /tmp/emissary/test_input
-RUN chmod -R 777 /tmp/emissary/test_input
-RUN chmod -R 777 /tmp/emissary
+RUN mkdir /opt/emissary/test_input
+COPY src/test/resources/test_input /opt/emissary/test_input
+RUN chmod -R 777 /opt/emissary/test_input
+RUN chmod -R 777 /opt/emissary
 
 EXPOSE 8001
 
@@ -28,4 +28,4 @@ ENTRYPOINT ["./emissary"]
 CMD ["server", "-a", "2", "-p", "8001"]
 
 LABEL version=${PROJ_VERS} \
-      run="docker run -it --rm -v /local/data:/tmp/emissary/target/data --name emissary ${IMG_NAME}"
+      run="docker run -it --rm -v /local/data:/opt/emissary/target/data --name emissary ${IMG_NAME}"
