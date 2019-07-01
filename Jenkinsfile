@@ -36,7 +36,6 @@ pipeline {
     	    	  maven 'Maven 3.6.1'
    	    }
             steps {
-                sh 'mvn test' 
 		sh 'rm -f test_results'
 		sh 'sudo ./test_script.sh'
             }
