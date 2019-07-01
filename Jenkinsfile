@@ -8,7 +8,7 @@ pipeline {
    	    }
             steps {
 	        sh 'sudo yum update -y'
-		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl'
+		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker'
 		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
@@ -24,7 +24,7 @@ pipeline {
 		sh 'mvn -v'
 		sh 'mvn clean install'
 		sh 'mvn test'
-		sh 'mvn clean package -Pdist -e -X'
+		sh 'mvn clean package -Pdist'
             }
         }
         stage('Test') {
