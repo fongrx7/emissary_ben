@@ -28,4 +28,4 @@ ENTRYPOINT ["./emissary"]
 CMD ["server", "-a", "2", "-p", "8001"]
 
 LABEL version=${PROJ_VERS} \
-      run="docker run -it --rm -v /local/data:/opt/emissary/target/data --name emissary ${IMG_NAME}"
+      run="docker run -it --rm -v /local/data:/tmp/emissary/target/data --name emissary ${IMG_NAME}"
