@@ -25,6 +25,7 @@ pipeline {
 		sh 'mvn clean install'
 		sh 'mvn test'
 		sh 'mvn clean package -Pdist'
+		sh 'sudo systemctl start docker'
             }
         }
         stage('Test') {
