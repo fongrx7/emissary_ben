@@ -38,6 +38,7 @@ pipeline {
             steps {
                 sh 'mvn test' 
 		sh 'sudo chmod 777 /opt'
+		sh 'rm -f test_results'
 		sh 'sudo ./test_script.sh'	
             }
         }
