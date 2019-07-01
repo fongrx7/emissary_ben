@@ -8,7 +8,7 @@ services:
       - "8001:8001"
     network_mode: host
     volumes:
-      - output-1:/home/docker_build_home/emissary/localoutput
+      - output-1:/opt/emissary/localoutput
 
   emissary-worker-2:
     image: emissary
@@ -17,11 +17,11 @@ services:
       - "9001:9001"
     network_mode: host
     volumes:
-      - output-2:/home/docker_build_home/emissary/localoutput
+      - output-2:/opt/emissary/localoutput
 
   emissary-feeder:
     image: emissary
-    command: feed -p 7001 -i /home/docker_build_home/emissary/test_input/ --eatPrefix /home/docker_build_home/emissary/test_input/
+    command: feed -p 7001 -i /opt/emissary/test_input/ --eatPrefix /opt/emissary/test_input/
     ports:
       - "7001:7001"
     network_mode: host

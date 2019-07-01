@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh 'mvn test' 
 		sh 'rm -f test_results'
-		sh './test_script.sh'
+		sh 'sudo ./test_script.sh'
             }
         }
     }
