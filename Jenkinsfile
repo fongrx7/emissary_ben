@@ -8,6 +8,7 @@ pipeline {
    	    }
             steps {
 	    	sh 'pwd'
+		sh './emissary -version'
 	        sh 'sudo yum update -y'
 		sh 'sudo yum install -y java-1.8.0-openjdk unzip wget tar which expect perl docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
