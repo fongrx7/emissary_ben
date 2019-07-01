@@ -18,7 +18,7 @@ WORKDIR /home/docker_build_home/emissary
 RUN mkdir /home/docker_build_home/emissary/test_input
 COPY src/test/resources/test_input /home/docker_build_home/emissary/test_input
 RUN chmod -R 777 /home/docker_build_home/emissary/test_input
-RUN chmod -R 777 ~/home/docker_build_home/emissary
+RUN chmod -R 777 /home/docker_build_home/emissary
 
 EXPOSE 8001
 
