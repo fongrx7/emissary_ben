@@ -42,10 +42,10 @@ pipeline {
 	stage('Build JAR for Burrito consumption'){
 	    agent any
 	    tools {
-	    	  maven 'Maven 3.6.1'
+  	        maven 'Maven 3.6.1'
 	    }
 	    steps {
-	    	  mvn package
+	        sh 'mvn package'
 	    }
 	}
     }
