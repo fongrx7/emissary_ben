@@ -46,7 +46,8 @@ pipeline {
 	    }
 	    steps {
 	        sh 'mvn package'
-		archiveArtifacts artifacts: 'target/emissary*.jar', fingerprint: true
+		sh 'mv target/emissary*.jar target/emissary.jar
+		archiveArtifacts artifacts: 'target/emissary.jar', fingerprint: true
 	    }
 	}
     }
