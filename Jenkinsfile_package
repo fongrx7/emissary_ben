@@ -52,6 +52,9 @@ pipeline {
 	}
 	stage('Tag + Release'){
 	    agent any
+	    environment { 
+                GIT_AUTH = credentials('bekelm') 
+            }
 	    steps {
 	        sh ('''git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                 git push https://github.com/bekelm/emissary.git Jenkins_and_docker''')
