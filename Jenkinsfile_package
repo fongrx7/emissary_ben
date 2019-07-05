@@ -56,6 +56,8 @@ pipeline {
                 GIT_AUTH = credentials('bekelm') 
             }
 	    steps {
+	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
+	    	sh 'echo $GIT_AUTH_USR'
 	        sh ('''git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                 git push https://github.com/bekelm/emissary.git Jenkins_and_docker''')
 	    }
