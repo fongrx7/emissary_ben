@@ -55,7 +55,7 @@ pipeline {
 	    steps {
 	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
 	    	withCredentials([usernamePassword(credentialsId: 'bekelm_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-		    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@bekelm_emissary --tags')
+		    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@bekelm/emissary --tags')
 		}
 	    }
 	}
