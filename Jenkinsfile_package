@@ -71,7 +71,7 @@ pipeline {
 		    job: 'burrito_pipeline',
 		    parameters: [
 		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO))
-		    ]
+		    ] 
 		)
 	    }   
 	}
