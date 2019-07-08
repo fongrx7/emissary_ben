@@ -1,5 +1,9 @@
 pipeline {
     agent none
+    parameters {
+        string(defaultValue: "", description: 'String used to tag and release emissary if pipeline successfully builds.', name: 'TAG_EMISSARY'),
+	string(defaultValue: "", description: 'String used to tag and release burrito if pipeline successfully builds.', name: 'TAG_BURRITO'),
+    }
     stages {
         stage('Build Emissary') {
 	    agent any
@@ -67,9 +71,7 @@ pipeline {
 		    job: 'burrito_pipeline',
 		    parameters: [
 		        [
-			    $class: 'StringParameterValue'
-			    name: 'TAG_BURRITO',
-			    value: '${TAG_BURRITO}',
+			    string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO))
 			]
 		    ],
 		)
