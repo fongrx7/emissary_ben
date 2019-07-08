@@ -18,6 +18,7 @@ pipeline {
 		sh 'rm -rf ~/.m2/repository'
 		sh 'mv settings.xml ~/.m2'
 		sh 'mv settings-security.xml ~/.m2'
+		sh 'mvn versions:set -DnewVersion=${TAG_EMISSARY}'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
             }
