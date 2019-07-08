@@ -60,5 +60,20 @@ pipeline {
 		}
 	    }
 	}
+	stage('Start Burrito Build'){
+	    agent any
+	    steps {
+	        build(
+		    job: 'burrito_pipeline',
+		    parameters: [
+		        [
+			    $class: 'StringParameterValue'
+			    name: 'TAG_BURRITO',
+			    value: "$TAG_BURRITO",
+			]
+		    ],
+		)
+	    }   
+	}
     }
 }
