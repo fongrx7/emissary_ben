@@ -80,7 +80,7 @@ pipeline {
 	        build(
 		    job: 'burrito_pipeline',
 		    parameters: [
-		     	string(name: 'TAG_EMISSARY', value: String.valueOf(TAG_EMISSARY))
+		     	string(name: 'TAG_EMISSARY', value: String.valueOf(TAG_EMISSARY)), 
 		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO))
 		    ] 
 		)
