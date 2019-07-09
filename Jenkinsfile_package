@@ -20,8 +20,6 @@ pipeline {
 		sh 'mv settings-security.xml ~/.m2'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
-		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
-		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
 		sh 'head pom.xml'
             }
         }
@@ -32,6 +30,8 @@ pipeline {
    	    }
 	    steps {
 	        sh 'sudo systemctl start docker'
+		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
+		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
 		sh 'head pom.xml'
 		sh 'mvn clean package -Pdist'
 		sh 'head pom.xml'
@@ -54,6 +54,8 @@ pipeline {
   	        maven 'Maven 3.6.1'
 	    }
 	    steps {
+	    	sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
+		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
 	    	sh 'head pom.xml'
 	        sh 'mvn package'
 		sh 'head pom.xml'
@@ -65,6 +67,8 @@ pipeline {
 	    agent any
 	    steps {
 	    	sh 'head pom.xml'
+		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
+		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
 	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
 	    	withCredentials([usernamePassword(credentialsId: 'bekelm_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
 		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git add .; fi;')
