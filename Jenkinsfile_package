@@ -61,22 +61,20 @@ pipeline {
 	}
 	stage('Tag + Release'){
 	    agent any
-	    tools {
-  	        maven 'Maven 3.6.1'
-	    }
 	    steps {
 	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
 	    	withCredentials([usernamePassword(credentialsId: 'bekelm_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
 		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git add .; fi;')
 		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
-		    sh('if [ "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
-		    sh('if [ "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
+		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
+		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
 		}
 	    }
 	}
 	stage('Start Burrito Build'){
 	    agent any
 	    steps {
+	    	sh ('if [ "$TAG_EMISSARY" == "" ]; then export TAG_EMISSARY=$(./emissary version | grep Version: | awk {\'print $3 " " \'}); fi;)
 	        build(
 		    job: 'burrito_pipeline',
 		    parameters: [
