@@ -22,6 +22,7 @@ pipeline {
 		sh 'mvn clean compile'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
+		sh 'head pom.xml'
             }
         }
 	stage('Build Docker Image'){
@@ -31,8 +32,10 @@ pipeline {
    	    }
 	    steps {
 	        sh 'sudo systemctl start docker'
+		sh 'head pom.xml'
 		sh 'mvn clean package -Pdist'
-	   	sh 'docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .'
+		sh 'head pom.xml'
+	   	sh ('if [ "$TAG_EMISSARY" == "" ]; then docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .; else docker build -t emissary:${TAG_EMISSARY} --build-arg PROJ_VERS=${TAG_EMISSARY} --build-arg IMG_NAME=${TAG_EMISSARY} .; fi;')
 	    }
 	}
         stage('Test') {
@@ -51,7 +54,9 @@ pipeline {
   	        maven 'Maven 3.6.1'
 	    }
 	    steps {
+	    	sh 'head pom.xml'
 	        sh 'mvn package'
+		sh 'head pom.xml'
 		sh 'mv target/emissary*.jar target/emissary.jar'
 		archiveArtifacts artifacts: 'target/emissary.jar', fingerprint: true
 	    }
@@ -59,6 +64,7 @@ pipeline {
 	stage('Tag + Release'){
 	    agent any
 	    steps {
+	    	sh 'head pom.xml'
 	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
 	    	withCredentials([usernamePassword(credentialsId: 'bekelm_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
 		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git add .; fi;')
@@ -74,6 +80,7 @@ pipeline {
 	        build(
 		    job: 'burrito_pipeline',
 		    parameters: [
+		     	string(name: 'TAG_EMISSARY', value: String.valueOf(TAG_EMISSARY))
 		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO))
 		    ] 
 		)
