@@ -74,7 +74,7 @@ pipeline {
 	stage('Start Burrito Build'){
 	    agent any
 	    steps {
-	    	sh ('if [ "$TAG_EMISSARY" == "" ]; then export TAG_EMISSARY=$(./emissary version | grep Version: | awk {\'print $3 " " \'}); fi;)
+	    	sh ('if [ "$TAG_EMISSARY" == "" ]; then export TAG_EMISSARY="$(./emissary version | grep Version: | awk {\'print $3 " " \'})"; fi;)
 	        build(
 		    job: 'burrito_pipeline',
 		    parameters: [
