@@ -66,6 +66,9 @@ pipeline {
 	}
 	stage('Tag + Release'){
 	    agent any
+	    tools {
+  	        maven 'Maven 3.6.1'
+	    }
 	    steps {
 	    	sh 'head pom.xml'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
