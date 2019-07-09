@@ -30,6 +30,7 @@ pipeline {
    	    }
 	    steps {
 	        sh 'sudo systemctl start docker'
+		sh 'echo ${TAG_EMISSARY}'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
 		sh 'head pom.xml'
