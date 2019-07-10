@@ -7,7 +7,7 @@ pipeline {
     	    	  maven 'Maven 3.6.1'
    	    }
             steps {
-		sh 'sudo yum install -y java-1.8.0-openjdk tar expect which docker docker-compose'
+		sh 'sudo yum install -y java-1.8.0-openjdk-devel java-1.8.0-openjdk tar expect which docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
