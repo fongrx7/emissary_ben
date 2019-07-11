@@ -4,6 +4,7 @@ pipeline {
     parameters {
         string(defaultValue: "", description: 'String used to tag and release emissary if pipeline successfully builds.', name: 'TAG_EMISSARY')
 	string(defaultValue: "", description: 'String used to tag and release burrito if pipeline successfully builds.', name: 'TAG_BURRITO')
+	string(defaultValue: "", description: 'String used as git username for tag and release purposes and credentials to do so.', name:'GIT_NAME')
     }
     stages {
         stage('Build Emissary') {
@@ -18,7 +19,9 @@ pipeline {
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
 		sh 'rm -rf ~/.m2/repository'
-		sh 'mvn clean install site -DskipFormat'
+		sh 'mv settings.xml ~/.m2'
+		sh 'mv settings-security.xml ~/.m2'
+		sh 'mvn clean install'
 		sh 'mvn clean compile'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
@@ -60,12 +63,12 @@ pipeline {
 	stage('Tag + Release'){
 	    agent any
 	    steps {
-	        sh 'git config user.name "bekelm" && git config user.email "benjamin.e.kelm@gmail.com"'
-	    	withCredentials([usernamePassword(credentialsId: 'bekelm_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git add .; fi;')
-		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
-		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
-		    sh ('if [ "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
+	        sh (if [ "$GIT_NAME" != "" ]; then git config user.name "bekelm"; fi;')
+	    	withCredentials([usernamePassword(credentialsId: '$(GIT_NAME)_git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git add .; fi;')
+		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
+		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
+		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
 		}
 	    }
 	}
