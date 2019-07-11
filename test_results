@@ -1,0 +1,162 @@
+Attaching to emissarypipeline_emissary-worker-2_1, emissarypipeline_emissary-worker-1_1, emissarypipeline_emissary-feeder_1
+[36memissary-worker-2_1  |[0m PROJECT_BASE was not set, using /opt/emissary-5.5.0-SNAPSHOT
+[33memissary-worker-1_1  |[0m PROJECT_BASE was not set, using /opt/emissary-5.5.0-SNAPSHOT
+[32memissary-feeder_1    |[0m PROJECT_BASE was not set, using /opt/emissary-5.5.0-SNAPSHOT
+[36memissary-worker-2_1  |[0m  ________  ________ _____ _____  ___  ________   __
+[36memissary-worker-2_1  |[0m |  ___|  \/  |_   _/  ___/  ___|/ _ \ | ___ \ \ / /
+[36memissary-worker-2_1  |[0m | |__ | .  . | | | \ `--.\ `--./ /_\ \| |_/ /\ V / 
+[36memissary-worker-2_1  |[0m |  __|| |\/| | | |  `--. \`--. \  _  ||    /  \ /  
+[36memissary-worker-2_1  |[0m | |___| |  | |_| |_/\__/ /\__/ / | | || |\ \  | |  
+[36memissary-worker-2_1  |[0m \____/\_|  |_/\___/\____/\____/\_| |_/\_| \_| \_/  
+[36memissary-worker-2_1  |[0m 
+[36memissary-worker-2_1  |[0m PROJECT_BASE is set to /opt/emissary-5.5.0-SNAPSHOT 
+[36memissary-worker-2_1  |[0m Setting emissary.config.dir to /opt/emissary-5.5.0-SNAPSHOT/config 
+[36memissary-worker-2_1  |[0m Setting emissary.bin.dir to /opt/emissary-5.5.0-SNAPSHOT/bin 
+[36memissary-worker-2_1  |[0m Setting emissary.output.root to /opt/emissary-5.5.0-SNAPSHOT/localoutput 
+[36memissary-worker-2_1  |[0m Emissary error dir set to /opt/emissary-5.5.0-SNAPSHOT/localerror 
+[36memissary-worker-2_1  |[0m Setting emissary.node.name to localhost 
+[36memissary-worker-2_1  |[0m Setting emissary.node.port to 9001 
+[36memissary-worker-2_1  |[0m Setting emissary.node.scheme to http 
+[33memissary-worker-1_1  |[0m  ________  ________ _____ _____  ___  ________   __
+[33memissary-worker-1_1  |[0m |  ___|  \/  |_   _/  ___/  ___|/ _ \ | ___ \ \ / /
+[33memissary-worker-1_1  |[0m | |__ | .  . | | | \ `--.\ `--./ /_\ \| |_/ /\ V / 
+[33memissary-worker-1_1  |[0m |  __|| |\/| | | |  `--. \`--. \  _  ||    /  \ /  
+[33memissary-worker-1_1  |[0m | |___| |  | |_| |_/\__/ /\__/ / | | || |\ \  | |  
+[33memissary-worker-1_1  |[0m \____/\_|  |_/\___/\____/\____/\_| |_/\_| \_| \_/  
+[33memissary-worker-1_1  |[0m 
+[33memissary-worker-1_1  |[0m PROJECT_BASE is set to /opt/emissary-5.5.0-SNAPSHOT 
+[33memissary-worker-1_1  |[0m Setting emissary.config.dir to /opt/emissary-5.5.0-SNAPSHOT/config 
+[33memissary-worker-1_1  |[0m Setting emissary.bin.dir to /opt/emissary-5.5.0-SNAPSHOT/bin 
+[33memissary-worker-1_1  |[0m Setting emissary.output.root to /opt/emissary-5.5.0-SNAPSHOT/localoutput 
+[33memissary-worker-1_1  |[0m Emissary error dir set to /opt/emissary-5.5.0-SNAPSHOT/localerror 
+[33memissary-worker-1_1  |[0m Setting emissary.node.name to localhost 
+[33memissary-worker-1_1  |[0m Setting emissary.node.port to 8001 
+[33memissary-worker-1_1  |[0m Setting emissary.node.scheme to http 
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:28,945 localhost-9001  INFO emissary.command.BaseCommand -   - Overriding current emissary.config.flavor null to CLUSTER 
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:28,948 localhost-9001  INFO emissary.command.ServerCommand -   - Running Emissary Server
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:29,011 localhost-8001  INFO emissary.command.BaseCommand -   - Overriding current emissary.config.flavor null to CLUSTER 
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:29,020 localhost-8001  INFO emissary.command.ServerCommand -   - Running Emissary Server
+[32memissary-feeder_1    |[0m  ________  ________ _____ _____  ___  ________   __
+[32memissary-feeder_1    |[0m |  ___|  \/  |_   _/  ___/  ___|/ _ \ | ___ \ \ / /
+[32memissary-feeder_1    |[0m | |__ | .  . | | | \ `--.\ `--./ /_\ \| |_/ /\ V / 
+[32memissary-feeder_1    |[0m |  __|| |\/| | | |  `--. \`--. \  _  ||    /  \ /  
+[32memissary-feeder_1    |[0m | |___| |  | |_| |_/\__/ /\__/ / | | || |\ \  | |  
+[32memissary-feeder_1    |[0m \____/\_|  |_/\___/\____/\____/\_| |_/\_| \_| \_/  
+[32memissary-feeder_1    |[0m 
+[32memissary-feeder_1    |[0m PROJECT_BASE is set to /opt/emissary-5.5.0-SNAPSHOT 
+[32memissary-feeder_1    |[0m Setting emissary.config.dir to /opt/emissary-5.5.0-SNAPSHOT/config 
+[32memissary-feeder_1    |[0m Setting emissary.bin.dir to /opt/emissary-5.5.0-SNAPSHOT/bin 
+[32memissary-feeder_1    |[0m Setting emissary.output.root to /opt/emissary-5.5.0-SNAPSHOT/localoutput 
+[32memissary-feeder_1    |[0m Emissary error dir set to /opt/emissary-5.5.0-SNAPSHOT/localerror 
+[32memissary-feeder_1    |[0m Setting emissary.node.name to localhost 
+[32memissary-feeder_1    |[0m Setting emissary.node.port to 7001 
+[32memissary-feeder_1    |[0m Setting emissary.node.scheme to http 
+[32memissary-feeder_1    |[0m Overriding current emissary.config.flavor null to CLUSTER 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,504 localhost-7001  INFO emissary.command.FeedCommand -   - Starting feeder using emissary.pickup.WorkSpace as the workspace class
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,553 localhost-7001  INFO emissary.command.BaseCommand -   - PROJECT_BASE is set to /opt/emissary-5.5.0-SNAPSHOT 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,554 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.config.dir to /opt/emissary-5.5.0-SNAPSHOT/config 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,554 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.bin.dir to /opt/emissary-5.5.0-SNAPSHOT/bin 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,554 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.output.root to /opt/emissary-5.5.0-SNAPSHOT/localoutput 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,556 localhost-7001  INFO emissary.command.BaseCommand -   - Emissary error dir set to /opt/emissary-5.5.0-SNAPSHOT/localerror 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,557 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.config.flavor to CLUSTER 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,557 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.node.name to localhost 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,557 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.node.port to 7001 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,557 localhost-7001  INFO emissary.command.BaseCommand -   - Setting emissary.node.scheme to http 
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:29,577 localhost-7001  INFO emissary.command.BaseCommand -   - Overriding current emissary.config.flavor CLUSTER to CLUSTER 
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,639 localhost-9001  INFO emissary.server.InitializeContext -   - Emissary Node services starting for node-localhost-9001-linux
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:29,776 localhost-8001  INFO emissary.server.InitializeContext -   - Emissary Node services starting for node-localhost-8001-linux
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,839 localhost-9001  INFO emissary.admin.Startup -   - Directories all up in 0.058s
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,857 localhost-9001  INFO emissary.admin.Startup -   - Ready to start 6  places and 1 PickUp places.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,858 localhost-9001  INFO emissary.admin.Startup -   - Processing non-pickup places...
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,860 localhost-9001  INFO emissary.admin.Startup -   - done with map of 6 places
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,861 localhost-9001  INFO emissary.admin.Startup -   - Using localDir=EMISSARY_DIRECTORY_SERVICES.DIRECTORY.STUDY.http://localhost:9001/DirectoryPlace$5050[1] to create 6 places on 
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,861 localhost-9001  INFO emissary.admin.Startup -   - Waiting for 6 places to start.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,944 localhost-9001  INFO emissary.roll.RollManager -   - Scheduling Rollable class emissary.output.roller.JournaledCoalescer at 10 MINUTES
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:29,945 localhost-9001  INFO emissary.output.filter.JsonOutputFilter -   - Added Roller for JSON running every 10 MINUTES(s) or on size 262144000 (bytes).
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:29,991 localhost-8001  INFO emissary.admin.Startup -   - Directories all up in 0.063s
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,004 localhost-8001  INFO emissary.admin.Startup -   - Ready to start 6  places and 1 PickUp places.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,005 localhost-8001  INFO emissary.admin.Startup -   - Processing non-pickup places...
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,007 localhost-8001  INFO emissary.admin.Startup -   - done with map of 6 places
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,008 localhost-8001  INFO emissary.admin.Startup -   - Using localDir=EMISSARY_DIRECTORY_SERVICES.DIRECTORY.STUDY.http://localhost:8001/DirectoryPlace$5050[1] to create 6 places on 
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,010 localhost-8001  INFO emissary.admin.Startup -   - Waiting for 6 places to start.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,103 localhost-8001  INFO emissary.roll.RollManager -   - Scheduling Rollable class emissary.output.roller.JournaledCoalescer at 10 MINUTES
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,106 localhost-8001  INFO emissary.output.filter.JsonOutputFilter -   - Added Roller for JSON running every 10 MINUTES(s) or on size 262144000 (bytes).
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,156 localhost-7001  INFO emissary.server.InitializeContext -   - Emissary Node services starting for node-localhost-7001-linux
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,257 localhost-9001  INFO emissary.output.DropOffPlace -   - Output Filters: JSON(emissary.output.filter.JsonOutputFilter)
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,317 localhost-7001  INFO emissary.admin.Startup -   - Directories all up in 0.049s
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,319 localhost-7001  INFO emissary.admin.Startup -   - Ready to start 0  places and 0 PickUp places.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,320 localhost-7001  INFO emissary.admin.Startup -   - Processing non-pickup places...
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,321 localhost-7001  INFO emissary.admin.Startup -   - done with map of 0 places
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,322 localhost-7001  INFO emissary.admin.Startup -   - Waiting for 0 places to start.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,324 localhost-7001  INFO emissary.admin.Startup -   - Woohoo! 0 of 0 places are up and running.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,324 localhost-7001  INFO emissary.admin.Startup -   - Done with bootstrap phase
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,325 localhost-7001  INFO emissary.admin.Startup -   - done with map of 0 places
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,326 localhost-7001  INFO emissary.admin.Startup -   - Done starting pickup places, waiting for them...
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,327 localhost-7001  INFO emissary.admin.Startup -   - Waiting for 0 places to start.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:30,327 localhost-7001  INFO emissary.admin.Startup -   - Woohoo! 0 of 0 places are up and running.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,418 localhost-8001  INFO emissary.output.DropOffPlace -   - Output Filters: JSON(emissary.output.filter.JsonOutputFilter)
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:30,513 localhost-8001  INFO emissary.admin.Startup -   - Ok, now 2 of 6 places are up and running.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,864 localhost-9001  INFO emissary.admin.Startup -   - Over half way there! 4 of 6 places are up and running.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,864 localhost-9001  INFO emissary.admin.Startup -   - Woohoo! 6 of 6 places are up and running.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,864 localhost-9001  INFO emissary.admin.Startup -   - Done with bootstrap phase
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,864 localhost-9001  INFO emissary.admin.Startup -   - done with map of 1 places
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,864 localhost-9001  INFO emissary.admin.Startup -   - Done starting pickup places, waiting for them...
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,865 localhost-9001  INFO emissary.admin.Startup -   - Waiting for 7 places to start.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:30,866 localhost-9001  INFO emissary.admin.Startup -   - Using localDir=EMISSARY_DIRECTORY_SERVICES.DIRECTORY.STUDY.http://localhost:9001/DirectoryPlace$5050[1] to create 1 places on 
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,013 localhost-8001  INFO emissary.admin.Startup -   - Over half way there! 4 of 6 places are up and running.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,014 localhost-8001  INFO emissary.admin.Startup -   - Woohoo! 6 of 6 places are up and running.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,014 localhost-8001  INFO emissary.admin.Startup -   - Done with bootstrap phase
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,015 localhost-8001  INFO emissary.admin.Startup -   - done with map of 1 places
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,015 localhost-8001  INFO emissary.admin.Startup -   - Done starting pickup places, waiting for them...
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,015 localhost-8001  INFO emissary.admin.Startup -   - Waiting for 7 places to start.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,016 localhost-8001  INFO emissary.admin.Startup -   - Using localDir=EMISSARY_DIRECTORY_SERVICES.DIRECTORY.STUDY.http://localhost:8001/DirectoryPlace$5050[1] to create 1 places on 
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:31,366 localhost-9001  INFO emissary.admin.Startup -   - Almost ready! 6 of 7 places are up and running.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:31,515 localhost-8001  INFO emissary.admin.Startup -   - Almost ready! 6 of 7 places are up and running.
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:31,867 localhost-9001  INFO emissary.admin.Startup -   - Woohoo! 7 of 7 places are up and running.
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:32,016 localhost-8001  INFO emissary.admin.Startup -   - Woohoo! 7 of 7 places are up and running.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,811 localhost-7001  INFO emissary.server.EmissaryServer -   - Wrote /opt/emissary-5.5.0-SNAPSHOT/env.sh
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,811 localhost-7001  INFO emissary.server.EmissaryServer -   - Started EmissaryServer at http://localhost:7001
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,811 localhost-7001  INFO emissary.pickup.WorkSpace -   - Workspace is up and running
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,817 localhost-7001  INFO emissary.pickup.WorkSpace -   - Found 0 initial clients using INITIAL.FILE_PICK_UP_CLIENT.INPUT.* in WORKSPACE.WORK_SPACE.INPUT.http://localhost:7001/WorkSpace
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,827 localhost-7001  INFO emissary.pickup.WorkSpace -   - Running Workspace from Emissary version: 5.5.0-SNAPSHOT 2019-07-10T18:13:45Z
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,834 localhost-7001  INFO emissary.pickup.WorkSpace -   - Adding workbundle WorkBundle[id=6c8033d7-9ca5-47b7-b93d-6daf9a527af2, pri=10, files=[/opt/emissary/test_input/emissary-knight.png], eatPrefix=/opt/emissary/test_input/, outputRoot=/opt/emissary-5.5.0-SNAPSHOT/DoneParsedData, sentTo=null, errorCount=0, totalFileSize=21836, oldestModTime=1562161400000, youngModTime=1562161400000, simple=false, caseId=auto, size=1] size 1 filesSeen 1
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,836 localhost-7001  INFO emissary.pickup.WorkSpace -   - Processed 1 files into 1 bundles, skipping 0 bundles.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,837 localhost-7001  INFO emissary.pickup.WorkSpace -   - Collected 1 file bundles in 0.01s in loop iteration 1, 1 items in outbound queue
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,838 localhost-7001  INFO emissary.pickup.WorkSpace -   - Processed 0 files into 0 bundles, skipping 0 bundles.
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:34,838 localhost-7001  INFO emissary.pickup.WorkSpace -   - Collected 0 file bundles in 0.001s in loop iteration 2, 1 items in outbound queue
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:35,192 localhost-8001  INFO emissary.directory.HeartbeatManager -   - Notifying http://localhost:8001/DirectoryPlace of re-established contact with *.*.*.http://localhost:7001/DirectoryPlace
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:35,585 localhost-9001  INFO emissary.server.EmissaryServer -   - Wrote /opt/emissary-5.5.0-SNAPSHOT/env.sh
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:35,586 localhost-9001  INFO emissary.server.EmissaryServer -   - Started EmissaryServer at http://localhost:9001
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:35,664 localhost-8001  INFO emissary.server.EmissaryServer -   - Wrote /opt/emissary-5.5.0-SNAPSHOT/env.sh
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:35,664 localhost-8001  INFO emissary.server.EmissaryServer -   - Started EmissaryServer at http://localhost:8001
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:35,664 localhost-9001  INFO emissary.directory.HeartbeatManager -   - Notifying http://localhost:9001/DirectoryPlace of re-established contact with *.*.*.http://localhost:8001/DirectoryPlace
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:35,754 localhost-7001  INFO emissary.directory.HeartbeatManager -   - Notifying http://localhost:7001/DirectoryPlace of re-established contact with *.*.*.http://localhost:9001/DirectoryPlace
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:35,963 localhost-7001  INFO emissary.directory.DirectoryAdapter -  http://localhost:7001/DirectoryPlace - New pickup place INITIAL.FILE_PICK_UP_CLIENT.INPUT.http://localhost:8001/FilePickUpClient
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:36,017 localhost-7001  INFO emissary.directory.DirectoryAdapter -  http://localhost:7001/DirectoryPlace - New pickup place INITIAL.FILE_PICK_UP_CLIENT.INPUT.http://localhost:9001/FilePickUpClient
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:36,860 localhost-7001  INFO emissary.pickup.WorkSpace -   - Notified INITIAL.FILE_PICK_UP_CLIENT.INPUT.http://localhost:9001/FilePickUpClient in 1 attempts: SUCCESS
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:36,868 localhost-7001  INFO emissary.pickup.WorkSpace -   - Notified INITIAL.FILE_PICK_UP_CLIENT.INPUT.http://localhost:8001/FilePickUpClient in 1 attempts: SUCCESS
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:36,918 localhost-7001  INFO emissary.pickup.WorkSpace -   - Gave bundle WorkBundle[id=6c8033d7-9ca5-47b7-b93d-6daf9a527af2, pri=10, files=[/opt/emissary/test_input/emissary-knight.png], eatPrefix=/opt/emissary/test_input/, outputRoot=/opt/emissary-5.5.0-SNAPSHOT/DoneParsedData, sentTo=localhost:8001, errorCount=0, totalFileSize=21836, oldestModTime=1562161400000, youngModTime=1562161400000, simple=false, caseId=auto, size=1] to localhost:8001
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:41,833 localhost-7001  INFO emissary.pickup.WorkSpace -   - Sent shutdown msg to localhost:9001
+[36memissary-worker-2_1  |[0m 2019-07-11 13:04:41,840 localhost-9001  INFO emissary.pickup.file.FilePickUpClient -   - Closing down connection to WORKSPACE.WORK_SPACE.INPUT.http://localhost:7001/WorkSpace
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:41,973 localhost-8001  INFO emissary.pickup.file.FilePickUpClient -   - sessionParseMetric:40,emissary.parser.SimpleNioParser,/opt/emissary-5.5.0-SNAPSHOT/target/data/HoldData/emissary-knight.png,emissary-knight.png-1,1,21836
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:41,990 localhost-8001  INFO emissary.pickup.file.FilePickUpClient -   - **Deploying an agent for emissary-knight.png-1 and object c0cf30e4-310c-46c3-b95b-6c436d60facf forms=[UNKNOWN] simple=
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:41,992 localhost-8001  INFO emissary.pickup.file.FilePickUpClient -   - fileParseMetric:59,emissary.parser.SimpleNioParser,/opt/emissary-5.5.0-SNAPSHOT/target/data/HoldData/emissary-knight.png,1,21836
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:41,992 localhost-8001  INFO emissary.pickup.file.FilePickUpClient -   - emissary-knight.png processed and moved to done area /opt/emissary-5.5.0-SNAPSHOT/DoneParsedData
+[32memissary-feeder_1    |[0m 2019-07-11 13:04:42,011 localhost-7001  INFO emissary.pickup.WorkSpace -   - Sent shutdown msg to localhost:8001
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:42,016 localhost-8001  INFO emissary.pickup.file.FilePickUpClient -   - Closing down connection to WORKSPACE.WORK_SPACE.INPUT.http://localhost:7001/WorkSpace
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:42,281 localhost-8001  INFO emissary.output.DropOffPlace - emissary-knight.png-1 *.DROP_OFF.IO.http://localhost:8001/DropOffPlace$9990[1] - Finished DropOff for object c0cf30e4-310c-46c3-b95b-6c436d60facf, with external id: emissary-knight.png-1, with total processing time(: 315ms, with filetype: PNG
+[33memissary-worker-1_1  |[0m 2019-07-11 13:04:42,287 localhost-8001  INFO emissary.core.MobileAgent - emissary-knight.png-1  - 
+[33memissary-worker-1_1  |[0m filename: emissary-knight.png-1
+[33memissary-worker-1_1  |[0m    creationTimestamp: Thu Jul 11 13:04:41 GMT 2019
+[33memissary-worker-1_1  |[0m    currentForms: []
+[33memissary-worker-1_1  |[0m    filetype: PNG
+[33memissary-worker-1_1  |[0m    transform history (3) :
+[33memissary-worker-1_1  |[0m      UNKNOWN.FILE_PICK_UP_CLIENT.INPUT.http://localhost:8001/FilePickUpClient$5050
+[33memissary-worker-1_1  |[0m      UNKNOWN.UNIXFILE.ID.http://localhost:8001/UnixFilePlace$2050
+[33memissary-worker-1_1  |[0m      PNG.DROP_OFF.IO.http://localhost:8001/DropOffPlace$9990
+[33memissary-worker-1_1  |[0m 
+[32memissary-feeder_1    |[0m 2019-07-11 13:05:05,347 localhost-7001  INFO emissary.pickup.WorkSpace -   - WorkSpace has outbound=0, pending=0, total bundles / files / bytes = 1 / 1 / 21836 , #clients=2
+[32memissary-feeder_1    |[0m 2019-07-11 13:05:05,347 localhost-7001  INFO emissary.pickup.WorkSpace -   - Machine localhost:8001 took 1 bundles
+[32memissary-feeder_1    |[0m 2019-07-11 13:05:05,347 localhost-7001  INFO emissary.pickup.WorkSpace -   - WorkSpace has outbound=0, pending=0, total bundles / files / bytes = 1 / 1 / 21836 , #clients=2
+[32memissary-feeder_1    |[0m 2019-07-11 13:05:05,347 localhost-7001  INFO emissary.pickup.WorkSpace -   - Machine localhost:8001 took 1 bundles
+Gracefully stopping... (press Ctrl+C again to force)
