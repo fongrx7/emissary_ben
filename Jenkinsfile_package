@@ -18,7 +18,7 @@ pipeline {
 		sh 'mkdir -p ~/.m2'
 		sh 'chmod -R 777 ~/.m2'
 		sh 'rm -rf ~/.m2/repository'
-		sh 'mvn clean install site -Dcode-quality -DskipFormat'
+		sh 'mvn clean install site -DskipFormat'
 		sh 'mvn clean compile'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
