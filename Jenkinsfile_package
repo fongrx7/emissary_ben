@@ -64,7 +64,7 @@ pipeline {
 	    agent any
 	    steps {
 	        sh ('if [ "$GIT_NAME" != "" ]; then git config user.name "${GIT_NAME}"; fi;')
-	    	withCredentials([usernamePassword(credentialsId: '${GIT_NAME}', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+	    	withCredentials([usernamePassword(credentialsId: env.GIT_NAME, usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
 		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git add .; fi;')
 		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
 		    sh ('if [ "$GIT_NAME" != "" && "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
