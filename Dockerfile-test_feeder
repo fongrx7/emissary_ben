@@ -14,12 +14,13 @@ RUN ln -s /opt/emissary-${PROJ_VERS} /opt/emissary
 
 WORKDIR /opt/emissary
 
+RUN mkdir /opt/emissary/test_input
+COPY src/test/resources/test_input /opt/emissary/test_input
+
 EXPOSE 8001
 
 
-ENTRYPOINT ["./emissary"]
-
-CMD ["server", "-a", "2", "-p", "8001"]
+CMD ["./emissary", "server", "-a", "2", "-p", "8001"]
 
 LABEL version=${PROJ_VERS} \
       run="docker run -it --rm -v /local/data:/opt/emissary/target/data --name emissary ${IMG_NAME}"

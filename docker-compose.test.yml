@@ -22,8 +22,8 @@ services:
       - output-2:/opt/emissary/localoutput
 
   emissary-feeder:
-    image: emissary
-    command: feed -p 7001 -i /opt/emissary/target/data/InputData --eatPrefix /opt/emissary/target/data/InputData
+    image: emissary-feeder-test
+    command: /bin/bash -c "/opt/emissary/emissary feed -p 7001 -i /opt/emissary/target/data/InputData --eatPrefix /opt/emissary/target/data/InputData & export P1=$$! && sleep 10s && cp -R /opt/emissary/test_input/ /opt/emissary/target/data/InputData && wait"
     ports:
       - "7001:7001"
     network_mode: host
@@ -34,6 +34,6 @@ services:
       - input:/opt/emissary/target/data
 
 volumes:
-  input:
+  input: 
   output-1:
   output-2:
