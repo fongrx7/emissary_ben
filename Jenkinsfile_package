@@ -37,6 +37,7 @@ pipeline {
 		sh 'echo ${TAG_EMISSARY}'
 		sh 'mvn clean package -Pdist'
 	   	sh ('if [ "$TAG_EMISSARY" == "" ]; then docker build -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .; else docker build -t emissary:${TAG_EMISSARY} --build-arg PROJ_VERS=${TAG_EMISSARY} --build-arg IMG_NAME=${TAG_EMISSARY} .; fi;')
+		sh ('if [ "$TAG_EMISSARY" == "" ]; then docker build -f Dockerfile-test_feeder -t emissary:latest --build-arg PROJ_VERS=$(./emissary version | grep Version: | awk {\'print $3 " " \'}) --build-arg IMG_NAME=latest .; else docker build -f Dockerfile-test_feeder -t emissary:${TAG_EMISSARY} --build-arg PROJ_VERS=${TAG_EMISSARY} --build-arg IMG_NAME=${TAG_EMISSARY} .; fi;')
 	    }
 	}
         stage('Test') {
