@@ -1,6 +1,8 @@
 #!/bin/bash
 
 timeout --kill-after=10s -s SIGKILL 100s sudo docker-compose -f docker-compose.test.yml up --force-recreate | tee test_results
+docker-compose down
+
 
 TEST_RESULTS=0
 
