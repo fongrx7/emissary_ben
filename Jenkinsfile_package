@@ -17,11 +17,11 @@ pipeline {
 		sh 'sudo yum install -y java-1.8.0-openjdk-devel java-1.8.0-openjdk tar expect which docker docker-compose'
 		sh 'cat bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
-		sh 'sudo chown -R ${whoami}:${whoami} ~/.m2'
+		sh 'sudo chown -R $(whoami):$(whoami) ~/.m2'
 		sh 'rm -rf ~/.m2/repository'
 		sh 'mv settings.xml ~/.m2'
 		sh 'mv settings-security.xml ~/.m2'
-		sh 'sudo chown -R ${whoami}:${whoami} ${pwd}'
+		sh 'sudo chown -R $(whoami):$(whoami) $(pwd)'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')

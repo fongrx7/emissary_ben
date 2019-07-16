@@ -14,6 +14,8 @@ RUN ln -s /opt/emissary-${PROJ_VERS} /opt/emissary
 
 WORKDIR /opt/emissary
 
+RUN chmod 766 /opt/emissary
+
 EXPOSE 8001
 
 
