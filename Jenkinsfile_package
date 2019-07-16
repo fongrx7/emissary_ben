@@ -21,7 +21,7 @@ pipeline {
 		sh 'rm -rf ~/.m2/repository'
 		sh 'mv settings.xml ~/.m2'
 		sh 'mv settings-security.xml ~/.m2'
-		sh 'sudo chown -R ${whoami}:${whoami} ./*'
+		sh 'sudo chown -R ${whoami}:${whoami} ../emissary'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:set -DnewVersion=${TAG_EMISSARY}; fi;')
