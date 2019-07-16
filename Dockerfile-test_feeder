@@ -16,6 +16,9 @@ WORKDIR /opt/emissary
 
 RUN mkdir /opt/emissary/test_input
 COPY src/test/resources/test_input /opt/emissary/test_input
+RUN chmod 766 /opt
+RUN mkdir -p /opt/emissary-${PROJ_VERS}/localoutput/json
+RUN chmod -R a+rw /opt/emissary
 
 EXPOSE 8001
 

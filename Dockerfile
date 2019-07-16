@@ -14,7 +14,9 @@ RUN ln -s /opt/emissary-${PROJ_VERS} /opt/emissary
 
 WORKDIR /opt/emissary
 
-RUN chmod 766 /opt/emissary
+RUN chmod 766 /opt
+RUN mkdir -p /opt/emissary-${PROJ_VERS}/localoutput/json
+RUN chmod -R a+rw /opt/emissary
 
 EXPOSE 8001
 
