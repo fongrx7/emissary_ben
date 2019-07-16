@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(defaultValue: "", description: 'String used to tag and release emissary if pipeline successfully builds.', name: 'TAG_EMISSARY')
 	string(defaultValue: "", description: 'String used to tag and release burrito if pipeline successfully builds.', name: 'TAG_BURRITO')
-	string(defaultValue: "", description: 'String used as git username for tag and release purposes and credentials to do so.', name:'GIT_NAME')
+	string(defaultValue: "default", description: 'String used as git username for tag and release purposes and credentials to do so.', name:'GIT_NAME')
     }
     stages {
         stage('Build Emissary') {
@@ -65,12 +65,12 @@ pipeline {
 	stage('Tag + Release'){
 	    agent any
 	    steps {
-	        sh ('if [ "$GIT_NAME" != "" ]; then git config user.name "${GIT_NAME}"; fi;')
+	        sh ('if [ "$GIT_NAME" != "default" ]; then git config user.name "${GIT_NAME}"; fi;')
 	    	withCredentials([usernamePassword(credentialsId: env.GIT_NAME , usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-		    sh ('if [ "$GIT_NAME" != "" -a "$TAG_EMISSARY" != "" ]; then git add .; fi;')
-		    sh ('if [ "$GIT_NAME" != "" -a "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
-		    sh ('if [ "$GIT_NAME" != "" -a "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
-		    sh ('if [ "$GIT_NAME" != "" -a "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
+		    sh ('if [ "$GIT_NAME" != "default" -a "$TAG_EMISSARY" != "" ]; then git add .; fi;')
+		    sh ('if [ "$GIT_NAME" != "default" -a "$TAG_EMISSARY" != "" ]; then git commit -m "Commit made from Jenkins for tag ${TAG_EMISSARY}"; fi;')
+		    sh ('if [ "$GIT_NAME" != "default" -a "$TAG_EMISSARY" != "" ]; then git tag -a ${TAG_EMISSARY} -m "Jenkins tag of ${TAG_EMISSARY}"; fi;')
+		    sh ('if [ "$GIT_NAME" != "default" -a "$TAG_EMISSARY" != "" ]; then git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/bekelm/emissary.git --tags; fi;')
 		}
 	    }
 	}
