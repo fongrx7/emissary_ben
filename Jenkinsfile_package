@@ -82,7 +82,8 @@ pipeline {
 		    job: 'burrito_pipeline',
 		    parameters: [
 		     	string(name: 'TAG_EMISSARY', value: String.valueOf(TAG_EMISSARY)), 
-		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO))
+		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO)),
+			string(name: 'GIT_NAME', value: String.valueOf(GIT_NAME))
 		    ] 
 		)
 	    }   
