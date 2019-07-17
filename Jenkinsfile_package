@@ -1,5 +1,8 @@
 pipeline {
-    agent none
+    agent any
+    tools {
+        maven 'Maven 3.6.1'
+    }
     options { skipDefaultCheckout() }
     parameters {
         string(defaultValue: "", description: 'String used to tag and release emissary if pipeline successfully builds.', name: 'TAG_EMISSARY')
@@ -8,19 +11,15 @@ pipeline {
     }
     stages {
         stage('Build Emissary') {
-	    agent any
-	    tools {
-    	    	  maven 'Maven 3.6.1'
-   	    }
             steps {
 	    	checkout scm
 		sh 'sudo yum install -y java-1.8.0-openjdk-devel java-1.8.0-openjdk tar expect which docker docker-compose'
-		sh 'cat bashrc_addition >> ~/.bashrc'
+		sh 'cat src/test/resources/jenkins_config/bashrc_addition >> ~/.bashrc'
 		sh 'mkdir -p ~/.m2'
 		sh 'sudo chown -R $(whoami):$(whoami) ~/.m2'
 		sh 'rm -rf ~/.m2/repository'
-		sh 'mv settings.xml ~/.m2'
-		sh 'mv settings-security.xml ~/.m2'
+		sh 'mv src/test/resources/jenkins_config/settings.xml ~/.m2'
+		sh 'mv src/test/resources/jenkins_config/settings-security.xml ~/.m2'
 		sh 'sudo chown -R $(whoami):$(whoami) $(pwd)'
 		sh 'mvn clean install'
 		sh 'mvn clean compile'
@@ -29,10 +28,6 @@ pipeline {
             }
         }
 	stage('Build Docker Image'){
-	    agent any
-	    tools {
-    	    	  maven 'Maven 3.6.1'
-   	    }
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'echo ${TAG_EMISSARY}'
@@ -42,20 +37,12 @@ pipeline {
 	    }
 	}
         stage('Test') {
-	    agent any
-	    tools {
-    	    	  maven 'Maven 3.6.1'
-   	    }
             steps {
 		sh 'rm -f test_results'
-		sh 'sudo ./test_script.sh'
+		sh 'sudo ./Docker_compose_test_script.sh'
             }
         }
 	stage('Build JAR for Burrito consumption'){
-	    agent any
-	    tools {
-  	        maven 'Maven 3.6.1'
-	    }
 	    steps {
 	        sh 'mvn package'
 		sh 'mv target/emissary*.jar target/emissary.jar'
@@ -63,7 +50,6 @@ pipeline {
 	    }
 	}
 	stage('Tag + Release'){
-	    agent any
 	    steps {
 	        sh ('if [ "$GIT_NAME" != "default" ]; then git config user.name "${GIT_NAME}"; fi;')
 	    	withCredentials([usernamePassword(credentialsId: env.GIT_NAME , usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
@@ -75,7 +61,6 @@ pipeline {
 	    }
 	}
 	stage('Start Burrito Build'){
-	    agent any
 	    steps {
 	    	sh ('if [ "$TAG_EMISSARY" == "" ]; then export TAG_EMISSARY="$(./emissary version | grep Version: | awk {\'print $3 " " \'})"; fi;')
 	        build(
