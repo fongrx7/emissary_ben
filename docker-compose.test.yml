@@ -22,7 +22,7 @@ services:
       - output-2:/opt/emissary/localoutput
 
   emissary-feeder:
-    image: emissary-feeder-test
+    image: emissary-test-feeder
     command: /bin/bash -c "/opt/emissary/emissary feed -p 7001 -i /opt/emissary/target/data/InputData --eatPrefix /opt/emissary/target/data/InputData & export P1=$$! && sleep 10s && cp -R /opt/emissary/test_input/ /opt/emissary/target/data/InputData && wait"
     ports:
       - "7001:7001"
