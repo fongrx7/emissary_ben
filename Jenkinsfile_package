@@ -47,6 +47,7 @@ pipeline {
 	        sh 'mvn package'
 		sh 'mv target/emissary*.jar target/emissary.jar'
 		archiveArtifacts artifacts: 'target/emissary.jar', fingerprint: true
+		archiveArtifacts artifacts: 'pom.xml', fingerprint: true
 	    }
 	}
 	stage('Tag + Release'){
