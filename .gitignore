@@ -12,7 +12,7 @@ mvn_test.out
 # used when running ./emissary script
 .mvn-classpath
 
-# used when running ./test_script.sh
+# used when running ./Docker_compose_test_script.sh
 test_results
 
 # IDE stuff

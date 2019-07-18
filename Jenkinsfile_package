@@ -27,7 +27,7 @@ pipeline {
 		sh ('if [ "$TAG_EMISSARY" != "" ]; then mvn versions:commit; fi;')
             }
         }
-	stage('Build Docker Image'){
+	stage('Build Docker Images'){
 	    steps {
 	        sh 'sudo systemctl start docker'
 		sh 'echo ${TAG_EMISSARY}'
@@ -65,7 +65,7 @@ pipeline {
 	    steps {
 	    	sh ('if [ "$TAG_EMISSARY" == "" ]; then export TAG_EMISSARY="$(./emissary version | grep Version: | awk {\'print $3 " " \'})"; fi;')
 	        build(
-		    job: 'burrito_pipeline',
+		    job: 'Burrito_Pipeline',
 		    parameters: [
 		     	string(name: 'TAG_EMISSARY', value: String.valueOf(TAG_EMISSARY)), 
 		        string(name: 'TAG_BURRITO', value: String.valueOf(TAG_BURRITO)),
